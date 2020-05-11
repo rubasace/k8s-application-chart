@@ -10,6 +10,8 @@ steps:
     when:
       branch:
         - master
+      event:
+        - push
   - name: release
     image: quay.io/helmpack/chart-releaser:v1.0.0-beta.1
     environment:
@@ -23,3 +25,5 @@ steps:
     when:
       branch:
         - master
+      event:
+        - push
