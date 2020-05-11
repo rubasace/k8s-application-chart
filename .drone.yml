@@ -3,12 +3,12 @@ name: default
 
 steps:
   - name: package
-      image: alpine/helm:3.2.1
-      commands:
-        - helm package . --destination .deploy
-      when:
-        branch:
-          - master
+    image: alpine/helm:3.2.1
+    commands:
+      - helm package . --destination .deploy
+    when:
+      branch:
+        - master
   - name: release
     image: alpine
     commands:
