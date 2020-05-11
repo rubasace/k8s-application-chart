@@ -27,9 +27,10 @@ steps:
         - master
       event:
         - push
-  - name: update-index
-    image: alpine
+  - name: checkout gh-pages
+    image: alpine/git
     commands:
+      - git checkout gh-pages
       - ls -la
     when:
       event:
