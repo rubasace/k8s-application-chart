@@ -57,8 +57,7 @@ steps:
   - name: push index.yaml
     image: plugins/gh-pages
     settings:
-      username:
-        from_secret: github_username
+      username: rubasace
       password:
         from_secret: github_password
       pages_directory: .
