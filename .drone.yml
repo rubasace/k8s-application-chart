@@ -30,7 +30,7 @@ steps:
   - name: update-index
     image: alpine
     commands:
-      - ls
+      - ls -la
     when:
       event:
         - tag
