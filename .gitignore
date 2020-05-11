@@ -9,7 +9,6 @@
 !.drone.yml
 !Chart.yaml
 !README.md
-!index.yaml
 !values.yaml
 !templates
 !templates/**
