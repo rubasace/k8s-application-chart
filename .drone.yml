@@ -39,15 +39,16 @@ steps:
       event:
         - push
   - name: update index.yaml
-    image: alpine/helm:3.2.1
+    image: quay.io/helmpack/chart-releaser:v1.0.0-beta.1
+    environment:
+      CR_OWNER: ${DRONE_REPO_OWNER}
+      CR_GIT_REPO: ${DRONE_REPO_NAME}
+      CR_PACKAGE_PATH: .deploy
+      CR_TOKEN:
+        from_secret: CR_TOKEN
     commands:
-      - helm repo index --merge index.yaml --url ${DRONE_REPO_LINK} .
-      - cat index.yaml
-    when:
-      branch:
-        - master
-      event:
-        - push
+      - cr index -i ./index.yaml -c https://rubasace.github.io/k8s-application-chart/
+      - cat ./index.yaml
   - name: push index.yaml
     image: plugins/gh-pages
     settings:
