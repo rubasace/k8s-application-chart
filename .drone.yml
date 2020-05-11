@@ -41,7 +41,7 @@ steps:
   - name: update index.yaml
     image: alpine/helm:3.2.1
     commands:
-      - helm repo index --merge index.yaml --url ${DRONE_REPO_LINK} .deploy
+      - helm repo index --merge index.yaml --url ${DRONE_REPO_LINK} .
       - cat index.yaml
     when:
       branch:
