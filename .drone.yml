@@ -49,6 +49,11 @@ steps:
     commands:
       - cr index -i ./index.yaml -c https://rubasace.github.io/k8s-application-chart/
       - cat ./index.yaml
+    when:
+      branch:
+        - master
+      event:
+        - push
   - name: push index.yaml
     image: plugins/gh-pages
     settings:
