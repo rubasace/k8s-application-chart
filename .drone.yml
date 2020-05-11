@@ -47,10 +47,10 @@ steps:
       CR_TOKEN:
         from_secret: CR_TOKEN
     commands:
-      - cr index -i ./index.yaml
+      - cr index -i ./index.yaml -c  ${DRONE_REPO_LINK}
       - cat ./index/yaml
     when:
       branch:
         - master
       event:
-        - push
+        - tag
