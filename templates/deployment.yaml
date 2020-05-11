@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+      serving: "true"
+  template:
+    metadata:
+      name: {{ .Release.Name }}
+      labels:
+        app: {{ .Release.Name }}
+        serving: "true"
+    spec:
+      {{- if .Values.deployment.imagePullSecrets }}
+      imagePullSecrets:
+        {{- range .Values.deployment.imagePullSecrets }}
+        - name: {{ . }}
+        {{- end }}
+      {{- end }}
+      containers:
+        - image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
+          name: {{ .Release.Name }}
+          ports:
+            - containerPort: {{ .Values.deployment.containerPort }}
+              name: http
+              protocol: TCP

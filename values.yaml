@@ -1,0 +1,14 @@
+deployment:
+  replicas: 1
+  containerPort: 8080
+
+service:
+  port: 80
+
+ingress:
+  enabled: false
+  class: nginx
+  clusterIssuer: letsencrypt-prod
+  oauth2Enabled: false
+  oauth2AuthUrl: ""
+  oauth2SigninUrl: ""

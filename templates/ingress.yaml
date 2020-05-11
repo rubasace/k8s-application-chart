@@ -1,0 +1,34 @@
+{{- if .Values.ingress.enabled -}}
+{{- $fullName := include "kubernetes-application.fullname" . -}}
+{{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
+apiVersion: networking.k8s.io/v1beta1
+{{- else -}}
+apiVersion: extensions/v1beta1
+{{- end }}
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}
+  annotations:
+    kubernetes.io/ingress.class: {{ .Values.ingress.class }}
+    cert-manager.io/cluster-issuer: {{ .Values.ingress.clusterIssuer }}
+    {{- if .Values.ingress.oauth2Enabled -}}
+    {{ include "kubernetes-application.oauth2Annotations" . | nindent 4}}
+    {{- end }}
+    {{- with .Values.ingress.extraAnnotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+
+spec:
+  tls:
+    - hosts:
+        - {{ .Values.ingress.subdomain | default .Release.Name }}.{{ required "Domain is mandatory" .Values.ingress.domain }}
+      secretName: {{ include "kubernetes-application.tlsSecretName" . }}
+  rules:
+    - host: {{ .Values.ingress.subdomain | default .Release.Name }}.{{ required "Domain is mandatory" .Values.ingress.domain }}
+      http:
+        paths:
+          - backend:
+              serviceName: {{ .Release.Name }}
+              servicePort: http
+            path: /
+{{- end }}
