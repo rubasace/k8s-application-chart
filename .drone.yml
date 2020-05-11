@@ -37,7 +37,7 @@ steps:
       branch:
         - master
       event:
-        - tag
+        - push
   - name: update index.yaml
     image: quay.io/helmpack/chart-releaser:v1.0.0-beta.1
     environment:
@@ -47,10 +47,10 @@ steps:
       CR_TOKEN:
         from_secret: CR_TOKEN
     commands:
-      - cr index -i ./index.yaml -c  ${DRONE_REPO_LINK}
+      - cr index -i ./index.yaml -c ${DRONE_REPO_LINK}
       - cat ./index/yaml
     when:
       branch:
         - master
       event:
-        - tag
+        - push
