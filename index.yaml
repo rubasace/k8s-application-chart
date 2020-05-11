@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   kubernetes-application:
   - apiVersion: v2
+    created: "2020-05-11T19:24:25.655875491Z"
+    description: A Helm chart for Kubernetes
+    digest: 658eae96736e574bff1b760792eefb77055fba17feadaa9aad306dd56e577235
+    name: kubernetes-application
+    type: application
+    urls:
+    - https://github.com/rubasace/k8s-application-chart/releases/download/kubernetes-application-0.1.19/kubernetes-application-0.1.19.tgz
+    version: 0.1.19
+  - apiVersion: v2
     created: "2020-05-11T19:08:16.234628908Z"
     description: A Helm chart for Kubernetes
     digest: b5bfe6376e8a145d9a692d5b830d6793fdce307ea1c2d5223c8152a2019c8902
