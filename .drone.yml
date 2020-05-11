@@ -30,8 +30,10 @@ steps:
   - name: checkout gh-pages
     image: alpine/git
     commands:
-      - git checkout gh-pages
+      - git checkout --track origin/gh-pages
       - ls -la
     when:
+      branch:
+        - master
       event:
-        - tag
+        - push
