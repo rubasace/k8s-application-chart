@@ -1,0 +1,34 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: package
+      image: alpine/helm:3.2.1
+      commands:
+        - helm package . --destination .deploy
+      when:
+        branch:
+          - master
+  - name: release
+    image: alpine
+    commands:
+      - ls .deploy
+    when:
+      branch:
+        - master
+#  - name: deploy
+#    image: rubasace/drone-helm-k8s
+#    environment:
+#      K8S_CERT_AUTHORITY_DATA:
+#        from_secret: K8S_CERT_AUTHORITY_DATA
+#      K8S_SERVER:
+#        from_secret: K8S_SERVER
+#      K8S_USER:
+#        from_secret: K8S_USER
+#      K8S_PASSWORD:
+#        from_secret: K8S_PASSWORD
+#      NAMESPACE: production
+#      IMAGE_TAG: 1.0.0.${CI_BUILD_NUMBER}
+#    when:
+#      branch:
+#        - master

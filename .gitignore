@@ -6,6 +6,7 @@
 # You can whitelist files/folders with !, these will not be ignored.
 !.gitignore
 !.helmignore
+!.drone.yml
 !Chart.yaml
 !README.md
 !index.yaml
