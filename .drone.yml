@@ -55,11 +55,13 @@ steps:
       event:
         - push
   - name: push index.yaml
-    image: alpine/git
-    commands:
-      - git add ./index.yaml
-      - git commit -m "Update index.yaml (automatic message)"
-      - git push -u origin gh-pages
+    image: plugins/gh-pages
+    settings:
+      username:
+        from_secret: github_username
+      password:
+        from_secret: github_password
+      pages_directory: .
     when:
       branch:
         - master
