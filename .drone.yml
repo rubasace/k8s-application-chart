@@ -54,3 +54,14 @@ steps:
         - master
       event:
         - push
+  - name: push index.yaml
+    image: alpine/git
+    commands:
+      - git add /index.yaml
+      - git commit -m "Update index.yaml (automatic message)"
+      - git push -u origin gh-pages
+    when:
+      branch:
+        - master
+      event:
+        - push
