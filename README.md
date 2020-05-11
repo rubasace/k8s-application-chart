@@ -1,2 +1,2 @@
-#Kubernetes Application Chart
+# Kubernetes Application Chart
 Chart for k8s applications
