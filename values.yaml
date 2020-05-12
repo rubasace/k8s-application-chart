@@ -1,6 +1,10 @@
+#TODO add description to fields and organize them better
 deployment:
   replicas: 1
   containerPort: 8080
+  imagePullSecrets: []
+  image: ""
+  tag: ""
 
 service:
   port: 80
