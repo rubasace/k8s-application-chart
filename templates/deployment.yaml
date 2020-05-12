@@ -22,7 +22,7 @@ spec:
         {{- end }}
       {{- end }}
       containers:
-        - image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
+        - image: {{ printf "%s:%s" (required "Image has to be provided" .Values.deployment.image) (required "Image tag has to be provided" .Values.deployment.tag) | quote }}
           name: {{ .Release.Name }}
           ports:
             - containerPort: {{ .Values.deployment.containerPort }}
