@@ -3,6 +3,10 @@ type: docker
 name: default
 
 steps:
+  - name: lint
+    image: alpine/helm:3.2.1
+    commands:
+      - helm lint --strict .
   - name: package
     image: alpine/helm:3.2.1
     commands:
