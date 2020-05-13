@@ -36,7 +36,6 @@ steps:
     commands:
       - git fetch origin gh-pages
       - git checkout -t origin/gh-pages
-      - ls -la
     when:
       branch:
         - master
