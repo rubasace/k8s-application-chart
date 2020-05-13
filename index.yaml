@@ -2,6 +2,27 @@ apiVersion: v1
 entries:
   kubernetes-application:
   - apiVersion: v2
+    created: "2020-05-13T17:17:13.424206542Z"
+    description: A Helm chart for deploying applications to Kubernetes following common
+      best practices
+    digest: 4b610bfb6a0698df5180467b3a87d4df77f26199a4a92b7c53736b72f9acce2b
+    home: https://rubasace.github.io/k8s-application-chart/
+    icon: https://kubernetes.io/images/kubernetes-192x192.png
+    keywords:
+    - kubernetes
+    - microservices
+    maintainers:
+    - email: ruben.pahino.verdugo@gmail.com
+      name: Ruben Pahino Verdugo
+      url: https://github.com/rubasace
+    name: kubernetes-application
+    sources:
+    - https://github.com/rubasace/k8s-application-chart
+    type: application
+    urls:
+    - https://github.com/rubasace/k8s-application-chart/releases/download/kubernetes-application-0.1.24/kubernetes-application-0.1.24.tgz
+    version: 0.1.24
+  - apiVersion: v2
     created: "2020-05-13T08:51:36.981373702Z"
     description: A Helm chart for deploying applications to Kubernetes following common
       best practices
