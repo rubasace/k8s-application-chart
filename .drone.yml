@@ -15,7 +15,8 @@ steps:
       branch:
         - master
       event:
-        - push
+        - exclude:
+            - tag
   - name: release
     image: quay.io/helmpack/chart-releaser:v1.0.0-beta.1
     environment:
@@ -30,7 +31,8 @@ steps:
       branch:
         - master
       event:
-        - push
+        - exclude:
+            - tag
   - name: checkout gh-pages
     image: alpine/git
     commands:
@@ -41,7 +43,8 @@ steps:
       branch:
         - master
       event:
-        - push
+        - exclude:
+            - tag
   - name: update index.yaml
     image: quay.io/helmpack/chart-releaser:v1.0.0-beta.1
     environment:
@@ -57,7 +60,8 @@ steps:
       branch:
         - master
       event:
-        - push
+        - exclude:
+            - tag
   - name: push index.yaml
     image: plugins/gh-pages
     settings:
@@ -69,4 +73,5 @@ steps:
       branch:
         - master
       event:
-        - push
+        - exclude:
+            - tag
