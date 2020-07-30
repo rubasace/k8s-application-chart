@@ -3,8 +3,7 @@
 [![GitHub release](https://img.shields.io/github/release/rubasace/k8s-application-chart.svg)](https://GitHub.com/rubasace/k8s-application-chart/releases/)
 [![GitHub license](https://img.shields.io/github/license/rubasace/k8s-application-chart.svg)](https://github.com/rubasace/k8s-application-chart/blob/master/LICENSE)
 
-## Disclaimer
-This repository is just a proof of concept that isn't meant to be used by any means at a company. Use it at your own risk.
+> **_DISCLAIMER:_**  this repository is just a proof of concept that isn't meant to be used by any means at a company. Use it at your own risk.
  
 ## Description 
 Generic Helm Chart for deploying applications to Kubernetes.
