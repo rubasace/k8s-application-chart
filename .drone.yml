@@ -1,6 +1,6 @@
 ---
 kind: pipeline
-type: kubernetes
+type: docker
 name: default
 
 steps:
@@ -72,6 +72,6 @@ steps:
         - push
 ---
 kind: signature
-hmac: 1532c4049bba02538f133f71fbda70b71a3416f891a02759fd03b80b25fa5c10
+hmac: b329c70430212c5820d186caaf715cd0af85aa11b599ec78d07fc4a29178a999
 
 ...
