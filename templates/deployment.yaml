@@ -4,7 +4,7 @@ metadata:
   name: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.deployment.replicas }}
-  {{- if eq(.Values.deployment.replicas | int) 1 }}
+  {{- if eq (.Values.deployment.replicas | int) 1 }}
   strategy:
     type: RollingUpdate
     rollingUpdate:
