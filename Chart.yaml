@@ -1,6 +1,6 @@
 apiVersion: v2
 name: kubernetes-application
-version: 0.1.25
+version: 0.1.26
 type: application
 description: A Helm chart for deploying applications to Kubernetes following common best practices
 home: https://rubasace.github.io/k8s-application-chart/

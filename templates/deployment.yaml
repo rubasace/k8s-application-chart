@@ -4,6 +4,12 @@ metadata:
   name: {{ .Release.Name }}
 spec:
   replicas: {{ .Values.deployment.replicas }}
+  {{- if eq(.Values.deployment.replicas | int) 1 }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+  {{- end }}
   selector:
     matchLabels:
       app: {{ .Release.Name }}
