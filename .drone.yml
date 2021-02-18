@@ -1,3 +1,4 @@
+---
 kind: pipeline
 type: docker
 name: default
@@ -69,3 +70,8 @@ steps:
         - master
       event:
         - push
+---
+kind: signature
+hmac: 51ca7298ecd3a697082ea502d932cd83419905114abb4edadd00b272d42dd152
+
+...
